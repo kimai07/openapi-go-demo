@@ -1,0 +1,42 @@
+openapi: "3.0.3"
+
+info:
+  title: "Greeting API"
+  version: "v1.0.0"
+
+paths:
+  "/hello":
+    get:
+      summary: "Hello API"
+      description: "hello"
+      parameters:
+        - $ref: '#/components/parameters/q_name'
+      responses:
+        "200":
+          description: "ok"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/hello_response'
+
+components:
+  parameters:
+    q_name:
+      name: name
+      in: query
+      description: 名前
+      required: false
+      schema:
+        type: string
+        example: world
+  schemas:
+    hello_response:
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/hello'
+    hello:
+      type: object
+      properties:
+        message:
+          type: string

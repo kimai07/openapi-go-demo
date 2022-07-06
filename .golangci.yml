@@ -1,0 +1,16 @@
+linters-settings:
+  goimports:
+    local-prefixes: github.com/kimai07/openapi-go-demo
+
+linters:
+  enable:
+    - goimports
+  disable:
+    - gosimple
+    - staticcheck
+    - structcheck
+    - unused
+
+run:
+  timeout: 5m
+  go: '1.18'
